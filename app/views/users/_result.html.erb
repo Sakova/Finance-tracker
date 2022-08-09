@@ -5,9 +5,14 @@
 </div>
 
 <% if @stock %>
-  <div class="card card-header results-block mb-3">
-    <strong>Symbol: </strong> <%= @stock.ticker %>
-    <strong>Name: </strong> <%= @stock.name %>
-    <strong>Price: </strong> <%= @stock.last_price %>
+  <div class="row">
+    <div class="card mb-3 col-sm-9 p-0">
+      <div class="card-header flex">
+        <strong>Symbol: </strong> <%= @stock.ticker %>
+        <strong>Name: </strong> <%= @stock.name %>
+        <strong>Price: </strong> <%= @stock.last_price %>
+        <%= link_to 'Add to portfolio', user_stocks_path(user: current_user, ticker: @stock.ticker), class: 'btn btn-success text-decoration-none', method: :post %>
+      </div>
+    </div>
   </div>
 <% end %>
