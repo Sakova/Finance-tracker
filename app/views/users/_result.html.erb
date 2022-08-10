@@ -13,11 +13,10 @@
           <%= link_to 'Add to portfolio', user_stocks_path(user: current_user, ticker: @stock.ticker), class: 'btn btn-sm btn-success text-decoration-none', method: :post %>
         <% else %>
           <span class="badge bg-secondary">You are already tracking
-            <% if !current_user.under_stock_limit? %>
-              10 stocks
-            <% end %>
-            <% if !current_user.stock_already_tracked?(@stock.ticker) %>
+            <% if current_user.stock_already_tracked?(@stock.ticker) %>
               this stock
+            <% elsif !current_user.under_stock_limit? %>
+              10 stocks
             <% end %>
           </span>
         <% end %>
