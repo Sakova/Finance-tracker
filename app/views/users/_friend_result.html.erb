@@ -1,6 +1,6 @@
 <%= render 'layouts/messages' %>
 
-<% if @friends %>
+<% if !@friends.empty? %>
   <div class="card mb-3 p-0">
     <div class="card-header row m-0 align-items-center">
       <table class="col-md-12">
